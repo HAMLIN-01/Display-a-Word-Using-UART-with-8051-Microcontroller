@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"uc.obj" 
+TO "uartcom" 
+RAMSIZE(256) 

@@ -1,0 +1,44 @@
+C51 COMPILER V9.53.0.0   UC                                                                09/03/2024 12:57:03 PAGE 1   
+
+
+C51 COMPILER V9.53.0.0, COMPILATION OF MODULE UC
+OBJECT MODULE PLACED IN uc.OBJ
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE uc.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          void send(unsigned char *s)
+   3          {
+   4   1      while(*s){
+   5   2      SBUF=*s++;
+   6   2      while(TI==0);
+   7   2      TI=0;
+   8   2      }
+   9   1      }
+  10          void main()
+  11          {
+  12   1      unsigned int i;
+  13   1      SCON=0X50;
+  14   1      TMOD=0x20;
+  15   1      TH1=TL1=0Xfd;
+  16   1      TR1=1;
+  17   1      while(1){
+  18   2      send("Embetronix ");
+  19   2      for(i=0;i<35000;i++);
+  20   2      }
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     88    ----
+   CONSTANT SIZE    =     12    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       3
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
